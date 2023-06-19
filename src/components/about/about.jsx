@@ -36,7 +36,7 @@ const About = () => {
             </article>
           </div>
           <p>
-            Being able to handle multiple tasks is my characteristic. I am always energetic and eager to learn new skills. I have experience of working with several types of people. Besides, I always love to share my opinions with others and acquire knowledge from people. Also, I am active in LeetCode (130+ Problem Solved) and LinkedIn daily to remain updated with the new technologies.
+            Being able to handle multiple tasks is my characteristic. I am always energetic and eager to learn new skills. I have experience of working with various types of people. Besides, I always love to share my opinions with others and learn new things from people. Also I am active in LeetCode (150+ Problem Solved) and LinkedIn regularly to stay updated about the new technologies.
           </p>
           <a href='#contact' className='btn btn-primary'>Let's Talk</a>
         </div>
