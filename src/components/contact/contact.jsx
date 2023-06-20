@@ -1,10 +1,28 @@
 import React from 'react'
 import './contact.css'
-import {RiMailSendLine} from 'react-icons/ri'
+import {SiGmail} from 'react-icons/si'
 import {FaLinkedinIn} from 'react-icons/fa'
 import {FaWhatsapp} from 'react-icons/fa'
 
-const contact = () => {
+import { useRef } from 'react';
+import emailjs from 'emailjs-com'
+
+
+const ContactUs = () => {
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_q9ilso9', 'template_jggcxe6', form.current, 'ABr4Isr3V4LBkd11V')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+
+      e.target.reset()
+  };
+
   return (
     <section id='contact'>
       <h5>Get In Touch</h5>
@@ -13,7 +31,7 @@ const contact = () => {
       <div className="container contact__container">
         <div className="contact__options">
           <article className="contact__option">
-            <RiMailSendLine className='contact__option-icon'/>
+            <SiGmail className='contact__option-icon'/>
             <h4>Email</h4>
             <h5>spandan.99sarkar@gmail.com</h5>
             <a href="https://www.gmail.com" target='_blank' rel="noreferrer">Send an Email</a>
@@ -36,10 +54,10 @@ const contact = () => {
         
         {/* End of Contact Options */}
 
-        <form action="">
+        <form ref={form} onSubmit={sendEmail}>
           <input type="text" name='name' placeholder='Your Full Name' required/>
           <input type="email" name='email' placeholder='Your Email' required/>
-          <textarea name="meassage" rows="7" placeholder='Your Message' required></textarea>
+          <textarea name="message" rows="7" placeholder='Your Message' required></textarea>
           <button type='submit' className='btn btn-primary'>Send Message</button>
         </form>
       </div>
@@ -47,4 +65,4 @@ const contact = () => {
   )
 }
 
-export default contact
+export default ContactUs
